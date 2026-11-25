@@ -1,0 +1,87 @@
+{
+  "identity": {
+    "name": "PlotForge",
+    "productName": "SK PlotForge",
+    "summary": "a workspace for plotting data and analysing images: worksheets, plots and images side by side on one work surface, saved in a document that links to its files",
+    "author": "Ioannis Kostoulis",
+    "id": "plotforge",
+    "purpose": "plotting and image-analysis workspace",
+    "wordmarkPath": "logo.txt",
+    "versionSource": "VERSION",
+    "port": 4278,
+    "repository": "ioanniskostoulis/SK-PlotForge"
+  },
+  "environment": "workspace",
+  "blocks": ["documents", "updates", "export"],
+  "document": {
+    "noun": "document",
+    "plural": "documents",
+    "extension": "pfg",
+    "containsMultipleFiles": false,
+    "welcome": {
+      "title": "No document open",
+      "newLabel": "New document",
+      "openLabel": "Open…",
+      "detail": "Create or open a .pfg document"
+    },
+    "tabs": {
+      "noun": "document",
+      "newTitle": "New document",
+      "closeTitle": "Close document"
+    }
+  },
+  "theme": {
+    "dark": {
+      "accent": "#27a56a",
+      "accentLight": "#27a56a",
+      "accentAbout": "#2dbe7a",
+      "accentFill": "#1e8052",
+      "accentHover": "#186742"
+    },
+    "light": {
+      "accent": "#1e8052",
+      "accentLight": "#1e8052",
+      "accentAbout": "#1e8052",
+      "accentFill": "#1e8052",
+      "accentHover": "#186742"
+    }
+  },
+  "html": {
+    "center": "public/center.html",
+    "panes": "public/panes.html"
+  },
+  "desktop": {
+    "iconColour": "#27a56a",
+    "appId": "com.plotforge.app",
+    "copyright": "Copyright © 2026 Ioannis Kostoulis. GPL-2.0-or-later.",
+    "macCategory": "public.app-category.productivity",
+    "splash": {
+      "tiles": [
+        {
+          "image": "assets/splash/plot.png",
+          "alt": "A PlotForge plot of the electrical resistivity of copper and aluminium against temperature, with error bars and linear fits",
+          "frame": "selected"
+        },
+        {
+          "image": "assets/splash/micrograph.png",
+          "alt": "An optical micrograph at 500× with its dark grains thresholded in green, a polygon region and a 40 µm calibration bar",
+          "frame": "none"
+        }
+      ]
+    },
+    "document": {
+      "name": "PlotForge document",
+      "description": "PlotForge document",
+      "iconStem": "pfg",
+      "iconLabel": "PFG",
+      "iconInk": "#27a56a",
+      "role": "Editor",
+      "typeIdentifier": "com.plotforge.document",
+      "conformsTo": [
+        "public.data"
+      ],
+      "mimeType": "application/vnd.plotforge.document"
+    }
+  },
+  "dataColors": ["#f5d547", "#ffffff", "#ff8c1a", "#3d8bff", "#e040fb8c", "#ff8c1a8c", "#3d8bff8c", "#00d0c88c", "#000000", "#5a0096", "#d2262a", "#ffa500", "#102c78", "#1ea0dc", "#c8f5ff", "#3ddc5a8c", "#f5d5478c", "#ff3b3b8c", "#3ddc5a", "#000000ff", "#ffffffff", "#3d8bffff", "#3ddc5aff", "#C0504D", "#4F81BD", "#9BBB59", "#8064A2", "#F79646", "#7F7F7F", "#00000080", "#4BACC6", "#00000033", "#00000099", "#00000029"]
+}

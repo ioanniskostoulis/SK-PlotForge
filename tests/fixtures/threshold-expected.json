@@ -1,0 +1,26 @@
+[
+ {
+  "name": "threshold-bimodal8.png",
+  "otsu": 113,
+  "mean": 100,
+  "li": 105,
+  "count_above_otsu": 1120,
+  "pixels": 3072
+ },
+ {
+  "name": "threshold-bimodal16.png",
+  "otsu": 20427,
+  "mean": 28054,
+  "li": 21004,
+  "count_above_otsu": 712,
+  "pixels": 1200
+ },
+ {
+  "name": "threshold-skewed8.png",
+  "otsu": 54,
+  "mean": 26,
+  "li": 41,
+  "count_above_otsu": 196,
+  "pixels": 2000
+ }
+]

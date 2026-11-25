@@ -1,0 +1,78 @@
+@import url("forge-tokens.css");
+
+@import url("forge-brand.css");
+
+@import url("forge-shell.css");
+
+/* MARK: work surface */
+
+/* The canvas draws the shell's welcome surface (sheet, dots and major lines) under the document's images. */
+.work-surface { flex: 1; min-height: 120px; position: relative; overflow: hidden; background: var(--well); }
+body.no-docs .work-surface { display: none; }
+.work-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; cursor: default; touch-action: none; }
+.work-canvas.panning { cursor: grab; }
+.work-canvas.panning:active { cursor: grabbing; }
+.work-canvas:focus-visible { box-shadow: inset 0 0 0 var(--line-thin) var(--accent-light); }
+
+/* MARK: results */
+
+/* The Results pane: the document's results table in the Terminal's mono text, numbers right-aligned in tabular figures. */
+.results-pane { overflow: hidden; display: flex; flex-direction: column; background: var(--well); }
+.results-scroll { flex: 1; overflow: auto; padding: 0 6px 14px; }
+.results-table { border-collapse: collapse; font: var(--size) var(--mono); color: var(--text); white-space: nowrap; }
+.results-table th { position: sticky; top: 0; background: var(--well); text-align: left; padding: 0; border-bottom: 1px solid var(--separator); }
+.results-table th.numeric, .results-table td.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+.results-sort { border: 0; background: transparent; color: var(--text2); font: var(--weight-strong) var(--size) var(--mono); padding: var(--gap) var(--pad); width: 100%; text-align: inherit; cursor: default; }
+.results-sort:hover, .results-sort:focus-visible { color: var(--text-strong); outline: none; }
+.results-table th[aria-sort="ascending"] .results-sort, .results-table th[aria-sort="descending"] .results-sort { color: var(--accent); }
+.results-table td { padding: 3px var(--pad); border-bottom: 1px solid var(--hairline); }
+.results-table td.marker { color: var(--accent); font-weight: var(--weight-bold); }
+.results-table tbody tr { cursor: default; outline: none; }
+.results-table tbody tr:hover { background: var(--control); }
+.results-table tbody tr:focus-visible { box-shadow: inset 0 0 0 var(--line-thin) var(--accent-light); }
+/* The Results tab's actions sit together at the right of the tab bar, only while Results is selected. */
+#bottom-tabs[data-active="results"] .results-action { display: block; }
+#bottom-tabs .results-action + .results-action { margin-left: 0; }
+
+/* MARK: settings layers */
+
+/* An option set for this image or this export, over the app setting, carries a dot in the accent before its label. */
+.overridden > .label::before, .slider-row.overridden .head > span:first-child::before {
+  content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--accent); vertical-align: 1px;
+}
+
+/* The Info page's histogram and profile charts. */
+.mini-chart { display: block; width: 100%; height: 80px; border-radius: var(--radius); background: var(--control); }
+.mini-chart-fill { fill: var(--accent-light); }
+.mini-chart-line { fill: none; stroke: var(--accent-light); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+/* Labelled peaks of a lane profile (I20): a tick and its number over the chart. */
+.chart-wrap { position: relative; }
+.mini-chart-tick { stroke: var(--text3); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 2 2; }
+.peak-label { position: absolute; top: 2px; transform: translateX(-50%); color: var(--text-strong); font-size: var(--size-sm); line-height: 1; pointer-events: none; }
+/* The Charts tab: the selected region's histogram and profile side by side, each at the inspector's width. */
+.charts-pane { overflow: auto; background: var(--panel); display: flex; align-items: flex-start; }
+.charts-pane > .section { width: 246px; flex: none; box-sizing: border-box; border-bottom: 0; border-right: 1px solid var(--separator); }
+.charts-pane .chart-title { padding: 0; }
+/* The Threshold section's histogram: the current phase's band outlined. */
+.phase-band.current { stroke: var(--text); stroke-width: 1; vector-effect: non-scaling-stroke; }
+
+/* MARK: data */
+
+/* The inspector's Columns list for the selected worksheet: a row per column; the chosen one has the quiet selection fill. */
+.data-column-row { border-radius: var(--radius); cursor: default; outline: none; }
+.data-column-row:hover { background: var(--control); }
+.data-column-row.selected { background: var(--control-hover); }
+.data-column-row:focus-visible { box-shadow: inset 0 0 0 var(--line-thin) var(--accent-light); }
+
+/* A worksheet's two rows of actions: Use as X / Use as Y over the new-plot buttons, spaced as the shell's rows. */
+.inspector-action-rows { display: grid; gap: 6px; }
+/* The new plot's Kind and Plot on one row: the list takes the room, the button its label's width, both one control high. */
+.plot-kind-row { align-items: center; }
+.plot-kind-row > .select-control { flex: 1; width: auto; min-width: 0; }
+.plot-kind-row > .panel-button { flex: none; }
+
+/* A series field waiting for cells chosen in a worksheet (while it has the focus): its value in the accent colour. */
+.picking { color: var(--accent); }
+
+/* A series' reference field: a text field as Excel's reference boxes, its placeholder (Row number, None) quiet. */
+.reference-field input::placeholder { color: var(--text3); }

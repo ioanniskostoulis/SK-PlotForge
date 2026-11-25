@@ -1,0 +1,38 @@
+{
+  "name": "plotforge",
+  "productName": "SK PlotForge",
+  "version": "2.0.0",
+  "description": "PlotForge, plotting and image-analysis workspace",
+  "license": "GPL-2.0-or-later",
+  "author": "Ioannis Kostoulis",
+  "private": true,
+  "main": "build/desktop/main.cjs",
+  "scripts": {
+    "prepare": "node scripts/install-hooks.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit -p .",
+    "test": "node scripts/test.mjs",
+    "test:app": "node scripts/test-app.mjs",
+    "test:shell": "npm run build && node scripts/check-shell.mjs",
+    "web": "node scripts/web.mjs",
+    "dev": "node scripts/web.mjs --desktop",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && node scripts/package-config.mjs && node scripts/dist.mjs",
+    "installer": "node scripts/build-installer.mjs",
+    "checks": "npm run check && npm test && npm run test:app && npm run test:shell"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "forge-shell": "npm:@ioanniskostoulis/forge-shell@2.7.4"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "electron-winstaller": false
+  }
+}
